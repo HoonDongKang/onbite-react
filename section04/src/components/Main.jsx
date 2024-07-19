@@ -1,3 +1,5 @@
+import Button from "./Buttons";
+import Header from "./Header";
 import "./Main.css";
 
 // JSX 주의사항
@@ -6,19 +8,21 @@ import "./Main.css";
 // 3. 모든 태그는 닫혀있어야 한다.
 // 4. 최상위 태그는 반드시 하나여야 한다.
 const Main = () => {
-  const user = {
-    name: "강동훈",
-    isLogin: true,
+  const buttonProps = {
+    text: "메일",
+    color: "red",
+    a: 1,
+    b: 2,
   };
-
-  if (user.isLogin) {
-    // return <div style={{ backgroundColor: "red", borderBottom: "5px solid blue" }}>로그아웃</div>;
-    return <div className="logout">로그아웃</div>;
-  } else {
-    return <div>로그인</div>;
-  }
-
-  // return <>{user.isLogin ? <div>로그아웃</div> : <div>로그인</div>}</>;
+  return (
+    <>
+      <Button {...buttonProps} />
+      <Button text={"카페"} />
+      <Button text={"블로그"}>
+        <Header />
+      </Button>
+    </>
+  );
 };
 
 export default Main;
