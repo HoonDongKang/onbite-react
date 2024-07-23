@@ -11,7 +11,7 @@ const Bulb = ({ light }) => {
     </div>
   );
 };
-
+.
 function App() {
   // [현재값, 상태변화 함수값] = useState(초기값)
   const [count, setCount] = useState(0);
