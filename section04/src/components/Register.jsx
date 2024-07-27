@@ -35,7 +35,6 @@ const Register = () => {
           <option>한국</option>
           <option>미국</option>
           <option>영국</option>
-          <option>캐나다</option>
         </select>
       </div>
       <div>
