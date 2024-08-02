@@ -1,9 +1,7 @@
 import "./App.css";
 import Register from "./components/Register";
 function App() {
-  return (
-      <Register/>
-  );
+  return <Register />;
 }
 
 export default App;
