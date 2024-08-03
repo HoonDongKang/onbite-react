@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const Register = () => {
   const [input, setInput] = useState({
@@ -8,44 +8,44 @@ const Register = () => {
     bio: "",
   });
 
+  const countRef = useRef(0);
+  const inputRef = useRef();
+
   const onChange = (e) => {
+    countRef.current++;
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  // const onChangeName = (e) => {
-  //   setInput({ ...input, name: e.target.value });
-  // };
-
-  // const onChangeBirth = (e) => {
-  //   setInput({ ...input, birth: e.target.value });
-  // };
-
-  // const onChangeCountry = (e) => {
-  //   setInput({ ...input, country: e.target.value });
-  // };
-
-  // const onChangeBio = (e) => {
-  //   setInput({ ...input, bio: e.target.value });
-  // };
+  const onSubmit = () => {
+    if (input.name === "") inputRef.current.focus();
+  };
 
   return (
     <div>
       <div>
-        <input value={name} onChange={onChange} placeholder={"이름"} />
+        <input
+          ref={inputRef}
+          name="name"
+          value={input.name}
+          onChange={onChange}
+          placeholder="이름"
+        />
       </div>
       <div>
-        <input value={birth} type="date" onChange={onChange} />
+        <input name="birth" value={input.birth} type="date" onChange={onChange} />
       </div>
       <div>
-        <select value={country} onChange={onChange}>
-          <option>한국</option>
-          <option>미국</option>
-          <option>영국</option>
+        <select name="country" value={input.country} onChange={onChange}>
+          <option value="한국">한국</option>
+          <option value="미국">미국</option>
+          <option value="영국">영국</option>
         </select>
       </div>
       <div>
-        <textarea value={bio} onChange={onChange}></textarea>
+        <textarea name="bio" value={input.bio} onChange={onChange} placeholder="소개"></textarea>
       </div>
+
+      <button onClick={onSubmit}>제출</button>
     </div>
   );
 };
