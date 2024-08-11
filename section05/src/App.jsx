@@ -4,10 +4,15 @@ import Controller from "./components/Controller";
 
 function App() {
   return (
-    <>
-      <Viewer />
-      <Controller />
-    </>
+    <div className="App">
+      <h1>Simple Counter</h1>
+      <section>
+        <Viewer />
+      </section>
+      <section>
+        <Controller />
+      </section>
+    </div>
   );
 }
 
